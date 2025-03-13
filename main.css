@@ -1,0 +1,9 @@
+:root {
+	--square: 16px;
+}
+
+.square {
+	width: var(--square);
+	height: var(--square);
+	background-color: rgb(0, 0, 0);
+}
