@@ -5,3 +5,11 @@ function createSquare() {
 	square.classList.add("square");
 	gridContainer.appendChild(square);
 }
+
+function drawGrid(gridSize) {
+	for (let i = 0; i < gridSize * 16; i++) {
+		createSquare();
+	}
+}
+
+drawGrid(16);
