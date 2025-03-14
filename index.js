@@ -7,9 +7,9 @@ function createSquare() {
 }
 
 function drawGrid(gridSize) {
-	for (let i = 0; i < gridSize * 16; i++) {
+	for (let i = 0; i < gridSize * gridSize; i++) {
 		createSquare();
 	}
 }
 
-drawGrid(16);
+drawGrid(gridSize);
