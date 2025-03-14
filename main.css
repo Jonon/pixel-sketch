@@ -6,6 +6,10 @@
 	background-color: rgb(0, 0, 0);
 }
 
+.square:hover {
+	background-color: rgb(92, 94, 99);
+}
+
 .grid {
 	display: flex;
 	flex-wrap: wrap;
