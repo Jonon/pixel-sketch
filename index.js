@@ -25,6 +25,7 @@ squares.forEach((square) => {
 	square.addEventListener("mousedown", (e) => {
 		mouseMove = true;
 		changeSquareColor(e);
+		e.preventDefault();
 	});
 
 	square.addEventListener("mousemove", (e) => {
