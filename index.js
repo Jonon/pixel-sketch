@@ -17,3 +17,27 @@ function drawGrid(gridSize) {
 }
 
 drawGrid(gridSize);
+
+let mouseMove = false;
+
+const squares = document.querySelectorAll(".square");
+squares.forEach((square) => {
+	square.addEventListener("mousedown", (e) => {
+		mouseMove = true;
+		changeSquareColor(e);
+	});
+
+	square.addEventListener("mousemove", (e) => {
+		if (mouseMove) {
+			changeSquareColor(e);
+		}
+	});
+
+	square.addEventListener("mouseup", () => {
+		mouseMove = false;
+	});
+});
+
+function changeSquareColor(e) {
+	e.currentTarget.style.backgroundColor = "red";
+}
