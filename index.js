@@ -27,31 +27,31 @@ function newGrid() {
 	gridContainer.innerHTML = "";
 	createSquare();
 	drawGrid(setGridSize());
+
+	let mouseMove = false;
+
+	const squares = document.querySelectorAll(".square");
+	squares.forEach((square) => {
+		square.addEventListener("mousedown", (e) => {
+			mouseMove = true;
+			changeSquareColor(e);
+			e.preventDefault();
+		});
+
+		square.addEventListener("mousemove", (e) => {
+			if (mouseMove) {
+				changeSquareColor(e);
+			}
+		});
+
+		square.addEventListener("mouseup", () => {
+			mouseMove = false;
+		});
+	});
+
+	function changeSquareColor(e) {
+		e.currentTarget.style.backgroundColor = "red";
+	}
 }
 
 newGrid();
-
-let mouseMove = false;
-
-const squares = document.querySelectorAll(".square");
-squares.forEach((square) => {
-	square.addEventListener("mousedown", (e) => {
-		mouseMove = true;
-		changeSquareColor(e);
-		e.preventDefault();
-	});
-
-	square.addEventListener("mousemove", (e) => {
-		if (mouseMove) {
-			changeSquareColor(e);
-		}
-	});
-
-	square.addEventListener("mouseup", () => {
-		mouseMove = false;
-	});
-});
-
-function changeSquareColor(e) {
-	e.currentTarget.style.backgroundColor = "red";
-}
