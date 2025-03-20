@@ -30,6 +30,13 @@
 	gap: 1rem;
 }
 
+.column {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 2rem;
+}
+
 div h1 {
 	text-align: center;
 }
