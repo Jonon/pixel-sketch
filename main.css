@@ -2,17 +2,34 @@
 	--square: 16px;
 }
 
-.square {
-	background-color: rgb(0, 0, 0);
-}
-
 .square:hover {
 	background-color: rgb(92, 94, 99);
+}
+
+.container {
+	border: 1px solid rgb(223, 221, 221);
 }
 
 .grid {
 	display: flex;
 	flex-wrap: wrap;
-	width: 500px;
-	height: 500px;
+	width: 45rem;
+	height: 45rem;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.row {
+	display: flex;
+	gap: 1rem;
+}
+
+div h1 {
+	text-align: center;
 }
