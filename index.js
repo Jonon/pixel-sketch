@@ -49,9 +49,31 @@ function newGrid() {
 		});
 	});
 
-	function changeSquareColor(e) {
-		e.currentTarget.style.backgroundColor = "red";
+	function enableRGB() {
+		console.log("Enable RGB");
+		function randomNum() {
+			return Math.floor(Math.random() * 256);
+		}
+		return (backgroundColor = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`);
 	}
+
+	function changeSquareColor(e) {
+		if (colorMode === "default") {
+			e.currentTarget.style.backgroundColor = "rgb(0, 0, 0)";
+		} else if (colorMode === "rgb") {
+			e.currentTarget.style.backgroundColor = enableRGB();
+		}
+	}
+}
+
+let colorMode = "default";
+
+const rgbMode = document.querySelector("button.rgb");
+
+rgbMode.addEventListener("click", () => changeColorMode("rgb"));
+
+function changeColorMode(mode) {
+	colorMode = mode;
 }
 
 newGrid();
