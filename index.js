@@ -12,6 +12,7 @@ function setGridSize() {
 function createSquare() {
 	const square = document.createElement("div");
 	square.classList.add("square");
+	square.setAttribute("shade", 0);
 	gridContainer.classList.add("grid");
 	square.style.width = `calc(100% / ${setGridSize()})`;
 	gridContainer.appendChild(square);
@@ -57,11 +58,29 @@ function newGrid() {
 		return (backgroundColor = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`);
 	}
 
+	function shade(e) {
+		let shadeValue = parseFloat(e.currentTarget.getAttribute("shade"));
+
+		function incrementShade() {
+			if (shadeValue >= 1) {
+				return (shadeValue = 0.1);
+			} else {
+				return (shadeValue = Math.round((shadeValue += 0.1) * 100) / 100);
+			}
+		}
+
+		let newShadeValue = incrementShade();
+		e.currentTarget.setAttribute("shade", newShadeValue);
+		e.currentTarget.style.opacity = newShadeValue;
+	}
+
 	function changeSquareColor(e) {
 		if (colorMode === "default") {
 			e.currentTarget.style.backgroundColor = "rgb(0, 0, 0)";
 		} else if (colorMode === "rgb") {
 			e.currentTarget.style.backgroundColor = enableRGB();
+		} else if (colorMode === "shade") {
+			shade(e);
 		}
 	}
 }
@@ -69,8 +88,10 @@ function newGrid() {
 let colorMode = "default";
 
 const rgbMode = document.querySelector("button.rgb");
+const shadeMode = document.querySelector("button.shade");
 
 rgbMode.addEventListener("click", () => changeColorMode("rgb"));
+shadeMode.addEventListener("click", () => changeColorMode("shade"));
 
 function changeColorMode(mode) {
 	colorMode = mode;
