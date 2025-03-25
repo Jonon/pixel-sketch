@@ -50,8 +50,7 @@ function newGrid() {
 		});
 	});
 
-	function enableRGB() {
-		console.log("Enable RGB");
+	function randomizeColor() {
 		function randomNum() {
 			return Math.floor(Math.random() * 256);
 		}
@@ -85,8 +84,8 @@ function newGrid() {
 	function changeSquareColor(e) {
 		if (colorMode === "default") {
 			e.currentTarget.style.backgroundColor = squareColor;
-		} else if (colorMode === "rgb") {
-			e.currentTarget.style.backgroundColor = enableRGB();
+		} else if (colorMode === "color-randomizer") {
+			e.currentTarget.style.backgroundColor = randomizeColor();
 		} else if (colorMode === "shade") {
 			shade(e);
 		}
@@ -95,11 +94,13 @@ function newGrid() {
 
 let colorMode = "default";
 
-const rgbMode = document.querySelector("button.rgb");
+const randomizeColorBtnMode = document.querySelector("button.color-randomize");
 const shadeMode = document.querySelector("button.shade");
 const defaultMode = document.querySelector("input.color-picker");
 
-rgbMode.addEventListener("click", () => changeColorMode("rgb"));
+randomizeColorBtnMode.addEventListener("click", () =>
+	changeColorMode("color-randomizer")
+);
 shadeMode.addEventListener("click", () => changeColorMode("shade"));
 defaultMode.addEventListener("click", () => changeColorMode("default"));
 
