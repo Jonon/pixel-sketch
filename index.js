@@ -74,9 +74,17 @@ function newGrid() {
 		e.currentTarget.style.opacity = newShadeValue;
 	}
 
+	let squareColor = defaultMode.value;
+
+	defaultMode.addEventListener("change", watchColorPicker, false);
+
+	function watchColorPicker(e) {
+		squareColor = e.target.value;
+	}
+
 	function changeSquareColor(e) {
 		if (colorMode === "default") {
-			e.currentTarget.style.backgroundColor = "rgb(0, 0, 0)";
+			e.currentTarget.style.backgroundColor = squareColor;
 		} else if (colorMode === "rgb") {
 			e.currentTarget.style.backgroundColor = enableRGB();
 		} else if (colorMode === "shade") {
@@ -89,9 +97,11 @@ let colorMode = "default";
 
 const rgbMode = document.querySelector("button.rgb");
 const shadeMode = document.querySelector("button.shade");
+const defaultMode = document.querySelector("input.color-picker");
 
 rgbMode.addEventListener("click", () => changeColorMode("rgb"));
 shadeMode.addEventListener("click", () => changeColorMode("shade"));
+defaultMode.addEventListener("click", () => changeColorMode("default"));
 
 function changeColorMode(mode) {
 	colorMode = mode;
