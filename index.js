@@ -50,43 +50,39 @@ function newGrid() {
 		});
 	});
 
-	function randomizeColor() {
-		function randomNum() {
-			return Math.floor(Math.random() * 256);
-		}
-		return (backgroundColor = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`);
-	}
-
-	function shadeColor(e) {
-		let shadeValue = parseFloat(e.currentTarget.getAttribute("shade"));
-
-		function incrementShade() {
-			if (shadeValue >= 1) {
-				return (shadeValue = 0.1);
-			} else {
-				return (shadeValue = Math.round((shadeValue += 0.1) * 100) / 100);
-			}
-		}
-
-		let newShadeValue = incrementShade();
-		e.currentTarget.setAttribute("shade", newShadeValue);
-		e.currentTarget.style.opacity = newShadeValue;
-	}
-
-	let squareColor = colorPickerBtnMode.value;
-
-	colorPickerBtnMode.addEventListener("change", watchColorPicker, false);
-
-	function watchColorPicker(e) {
-		squareColor = e.target.value;
-	}
-
 	function changeSquareColor(e) {
 		if (colorMode === "colorPicker") {
+			let squareColor = colorPickerBtnMode.value;
+			colorPickerBtnMode.addEventListener("change", watchColorPicker, false);
+
+			function watchColorPicker(e) {
+				squareColor = e.target.value;
+			}
 			e.currentTarget.style.backgroundColor = squareColor;
 		} else if (colorMode === "color-randomizer") {
+			function randomizeColor() {
+				function randomNum() {
+					return Math.floor(Math.random() * 256);
+				}
+				return (backgroundColor = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`);
+			}
 			e.currentTarget.style.backgroundColor = randomizeColor();
 		} else if (colorMode === "shade") {
+			function shadeColor(e) {
+				let shadeValue = parseFloat(e.currentTarget.getAttribute("shade"));
+
+				function incrementShade() {
+					if (shadeValue >= 1) {
+						return (shadeValue = 0.1);
+					} else {
+						return (shadeValue = Math.round((shadeValue += 0.1) * 100) / 100);
+					}
+				}
+
+				let newShadeValue = incrementShade();
+				e.currentTarget.setAttribute("shade", newShadeValue);
+				e.currentTarget.style.opacity = newShadeValue;
+			}
 			shadeColor(e);
 		}
 	}
