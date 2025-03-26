@@ -12,7 +12,7 @@ function setGridSize() {
 function createSquare() {
 	const square = document.createElement("div");
 	square.classList.add("square");
-	square.setAttribute("shade", 0);
+	square.style.opacity = 1;
 	gridContainer.classList.add("grid");
 	square.style.width = `calc(100% / ${setGridSize()})`;
 	gridContainer.appendChild(square);
@@ -69,7 +69,7 @@ function newGrid() {
 			e.currentTarget.style.backgroundColor = randomizeColor();
 		} else if (colorMode === "shade") {
 			function shadeColor(e) {
-				let shadeValue = parseFloat(e.currentTarget.getAttribute("shade"));
+				let shadeValue = parseFloat(e.currentTarget.style.opacity);
 
 				function incrementShade() {
 					if (shadeValue >= 1) {
@@ -80,7 +80,6 @@ function newGrid() {
 				}
 
 				let newShadeValue = incrementShade();
-				e.currentTarget.setAttribute("shade", newShadeValue);
 				e.currentTarget.style.opacity = newShadeValue;
 			}
 			shadeColor(e);
