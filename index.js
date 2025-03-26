@@ -57,7 +57,7 @@ function newGrid() {
 		return (backgroundColor = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`);
 	}
 
-	function shade(e) {
+	function shadeColor(e) {
 		let shadeValue = parseFloat(e.currentTarget.getAttribute("shade"));
 
 		function incrementShade() {
@@ -87,7 +87,7 @@ function newGrid() {
 		} else if (colorMode === "color-randomizer") {
 			e.currentTarget.style.backgroundColor = randomizeColor();
 		} else if (colorMode === "shade") {
-			shade(e);
+			shadeColor(e);
 		}
 	}
 }
@@ -95,13 +95,13 @@ function newGrid() {
 let colorMode = "colorPicker";
 
 const randomizeColorBtnMode = document.querySelector("button.color-randomize");
-const shadeMode = document.querySelector("button.shade");
+const shadeBtnMode = document.querySelector("button.shade");
 const colorPickerBtnMode = document.querySelector("input.color-picker");
 
 randomizeColorBtnMode.addEventListener("click", () =>
 	changeColorMode("color-randomizer")
 );
-shadeMode.addEventListener("click", () => changeColorMode("shade"));
+shadeBtnMode.addEventListener("click", () => changeColorMode("shade"));
 colorPickerBtnMode.addEventListener("click", () =>
 	changeColorMode("colorPicker")
 );
