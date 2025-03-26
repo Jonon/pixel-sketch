@@ -73,16 +73,16 @@ function newGrid() {
 		e.currentTarget.style.opacity = newShadeValue;
 	}
 
-	let squareColor = defaultMode.value;
+	let squareColor = colorPickerBtnMode.value;
 
-	defaultMode.addEventListener("change", watchColorPicker, false);
+	colorPickerBtnMode.addEventListener("change", watchColorPicker, false);
 
 	function watchColorPicker(e) {
 		squareColor = e.target.value;
 	}
 
 	function changeSquareColor(e) {
-		if (colorMode === "default") {
+		if (colorMode === "colorPicker") {
 			e.currentTarget.style.backgroundColor = squareColor;
 		} else if (colorMode === "color-randomizer") {
 			e.currentTarget.style.backgroundColor = randomizeColor();
@@ -92,17 +92,19 @@ function newGrid() {
 	}
 }
 
-let colorMode = "default";
+let colorMode = "colorPicker";
 
 const randomizeColorBtnMode = document.querySelector("button.color-randomize");
 const shadeMode = document.querySelector("button.shade");
-const defaultMode = document.querySelector("input.color-picker");
+const colorPickerBtnMode = document.querySelector("input.color-picker");
 
 randomizeColorBtnMode.addEventListener("click", () =>
 	changeColorMode("color-randomizer")
 );
 shadeMode.addEventListener("click", () => changeColorMode("shade"));
-defaultMode.addEventListener("click", () => changeColorMode("default"));
+colorPickerBtnMode.addEventListener("click", () =>
+	changeColorMode("colorPicker")
+);
 
 function changeColorMode(mode) {
 	colorMode = mode;
