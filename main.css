@@ -7,6 +7,17 @@ button {
 	font-family: "DotGothic16", sans-serif;
 }
 
+button {
+	border: none;
+}
+
+button {
+	padding: 0.8rem;
+	font-size: 1rem;
+	background-color: rgb(216, 59, 106);
+	color: rgb(255, 255, 255);
+}
+
 .square:hover {
 	background-color: rgb(92, 94, 99);
 }
