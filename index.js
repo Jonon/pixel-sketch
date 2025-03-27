@@ -91,7 +91,7 @@ let colorMode = "colorPicker";
 
 const randomizeColorBtnMode = document.querySelector("button.color-randomize");
 const shadeBtnMode = document.querySelector("button.shade");
-const colorPickerBtnMode = document.querySelector("input.color-picker");
+const colorPickerBtnMode = document.querySelector(".color-picker input");
 
 randomizeColorBtnMode.addEventListener("click", () =>
 	changeColorMode("color-randomizer")
