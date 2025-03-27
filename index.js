@@ -1,11 +1,13 @@
 const gridContainer = document.querySelector(".container");
 
 const slider = document.querySelector(".slider");
+let sliderSize = document.querySelector(".slider-size");
 
 slider.addEventListener("click", newGrid);
 
 function setGridSize() {
 	gridSize = slider.value;
+	sliderSize.textContent = slider.value;
 	return gridSize;
 }
 
