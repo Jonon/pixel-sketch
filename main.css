@@ -64,6 +64,7 @@ button {
 	flex-direction: column;
 	justify-content: center;
 	gap: 2rem;
+	align-items: center;
 }
 
 div h1 {
