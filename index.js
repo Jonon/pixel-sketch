@@ -41,7 +41,7 @@ function newGrid() {
 			e.preventDefault();
 		});
 
-		square.addEventListener("mousemove", (e) => {
+		square.addEventListener("mouseenter", (e) => {
 			if (mouseMove) {
 				changeSquareColor(e);
 			}
@@ -68,6 +68,7 @@ function newGrid() {
 				}
 				return (backgroundColor = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`);
 			}
+
 			e.currentTarget.style.backgroundColor = randomizeColor();
 		} else if (colorMode === "shade") {
 			function shadeColor(e) {
