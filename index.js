@@ -1,9 +1,20 @@
 const gridContainer = document.querySelector(".container");
-
 const slider = document.querySelector(".slider");
-let sliderSize = document.querySelector(".slider-size");
+const sliderSize = document.querySelector(".slider-size");
+const randomizeColorBtnMode = document.querySelector("button.color-randomize");
+const shadeBtnMode = document.querySelector("button.shade");
+const colorPickerBtnMode = document.querySelector(".color-picker input");
+
+let colorMode = "colorPicker";
 
 slider.addEventListener("click", newGrid);
+randomizeColorBtnMode.addEventListener("click", () =>
+	changeColorMode("color-randomizer")
+);
+shadeBtnMode.addEventListener("click", () => changeColorMode("shade"));
+colorPickerBtnMode.addEventListener("click", () =>
+	changeColorMode("colorPicker")
+);
 
 function setGridSize() {
 	gridSize = slider.value;
@@ -89,20 +100,6 @@ function newGrid() {
 		}
 	}
 }
-
-let colorMode = "colorPicker";
-
-const randomizeColorBtnMode = document.querySelector("button.color-randomize");
-const shadeBtnMode = document.querySelector("button.shade");
-const colorPickerBtnMode = document.querySelector(".color-picker input");
-
-randomizeColorBtnMode.addEventListener("click", () =>
-	changeColorMode("color-randomizer")
-);
-shadeBtnMode.addEventListener("click", () => changeColorMode("shade"));
-colorPickerBtnMode.addEventListener("click", () =>
-	changeColorMode("colorPicker")
-);
 
 function changeColorMode(mode) {
 	colorMode = mode;
