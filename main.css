@@ -51,7 +51,7 @@ button {
 	height: 45rem;
 }
 
-.wrapper {
+.page-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -64,7 +64,7 @@ button {
 	gap: 1rem;
 }
 
-.column {
+.controls {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
